@@ -68,15 +68,26 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row; /* Keep items in a single line */
+        justify-content: flex-end; /* Align items to the right */
+        padding: 10px; /* Add some padding for aesthetics */
+    }
 
+    .navbar a {
+        padding: 10px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}
 .home{
     display: flex;
     flex-wrap: wrap;
-    justify-content: right;
-    align-content: center;
+    margin-bottom: 50px;
     height: 70vh;
-    width: 65%;   
-    margin-top: 30px;
+    width: 90%;   
+    margin-top: 40px;
+    margin: 50px;
     
 }
 
@@ -86,7 +97,7 @@ body {
     font-style: normal;
     font-size: 35px;
     color: white;
-    align-content: center;
+   text-align: center;
     flex-grow: 1;
     flex-basis: 200px;
     backdrop-filter: blur(17px) saturate(180%);
@@ -104,10 +115,11 @@ body {
 
 .card{
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  width: 80%;   
+  width: 90%;  
   height: auto;
-  margin: 0 auto;
+  margin: 50px;
   border: 2px solid black;
   border-radius: 20px;
   padding: 12px;
@@ -127,7 +139,7 @@ body {
     font-style: normal;
     font-size: 30px;
     color: white;
-    flex-wrap: wrap; /* Allow wrapping of content */
+     flex-grow: 1;
     overflow: hidden; /* Preveent content overflw */
 }
 @media (max-width: 768px) {
@@ -179,7 +191,9 @@ body {
 
 
 .skills_container{
-  margin-top:150px ;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   color: white;
   margin-left: 30px;
   font-family: "Agdasima", sans-serif;
@@ -190,10 +204,8 @@ body {
   flex-wrap: wrap;
 }
 
-.skills{
-    flex-grow: 1;
-    flex-basis: 200px;
-}
+
+
 
 
 
@@ -237,7 +249,13 @@ body {
 color: orange;
 padding: 10px;
 }
+.animated-text {
+    transition: opacity 0.5s ease;
+}
 
+.fade-out {
+    opacity: 0;
+}
 .projects{
     display: flex;
     flex-wrap: wrap;
@@ -342,7 +360,7 @@ padding: 10px;
     <div class="home_container">
     <h1>My <span>name</span> is <span> Tarun kumar M.</span></h1>
     
-    <h1>I am a <span>Web Developer</span> </h1>
+    <h1>I am a <span class="animated-text">Web Developer</span> </h1>
     <a href="https://www.instagram.com/m_tarun_kumar/" target="_blank" style="--i:4"><i class="fa-brands fa-square-instagram"></i></i></a>
     <a href="https://www.linkedin.com/in/tarun-kumar-m1709/"target="_blank" style="--i:5"><i class="fa-brands fa-linkedin"></i></i></a>
     <a href="https://github.com/Ezioark" target="_blank"style="--i:6"><i class="fa-brands fa-square-github"></i></i></a>
@@ -369,9 +387,10 @@ padding: 10px;
 
 
 <div class="skills_container" id="skills">
-    <h1 style="color: orange;">My Skills</h1>
+   
        <div class="skills">
-        
+        <h1 style="color: orange;">My Skills</h1>
+        <div class="skills-card">
             <ul>
                 <li>HTML5 <img src="./style/html5.svg"> </li>
                 <li>CSS3<img src="./style/css3.svg">  </li>
@@ -385,7 +404,7 @@ padding: 10px;
                 <li>Express.JS <img src="./style/express.js.svg">  </li>
             </ul>
        
-
+        </div>
        </div>
     </div>
 
@@ -460,6 +479,24 @@ padding: 10px;
 
 <script src="https://kit.fontawesome.com/91dfd89819.js" crossorigin="anonymous"></script>  
 <script>
+     const animatedText = document.querySelector('.animated-text');
+    const roles = ['Web Developer', 'Full Stack Developer', 'Web Designer'];
+    let index = 0;
+
+    function changeText() {
+        animatedText.classList.add('fade-out');
+        setTimeout(() => {
+            animatedText.textContent = roles[index];
+            animatedText.classList.remove('fade-out');
+            index = (index + 1) % roles.length; // Cycle through the roles
+        }, 500); // Wait for fade-out animation to finish
+    }
+
+    setInterval(changeText, 2000); // Change text every 3 seconds
+
+
+
+
     document.querySelectorAll('.navbar a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
