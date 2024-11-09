@@ -22,7 +22,6 @@ body {
 .navbar {
     display: flex; /* Use flexbox for layout */
     border-radius:40px;
-    flex:shrink;
     flex-wrap: wrap; /* Allow wrapping of navbar items */
     overflow: hidden; /* Prevent overflow of navbar items */
     max-width:1200px;
@@ -69,6 +68,7 @@ body {
 
 .home{
     display: flex;
+    flex-wrap: wrap;
     justify-content: right;
     height: 70vh;
     width: 65%;   
@@ -82,6 +82,14 @@ body {
     font-style: normal;
     font-size: 35px;
     color: white;
+    flex-grow: 1;
+    flex-basis: 200px;
+    backdrop-filter: blur(17px) saturate(180%);
+   -webkit-backdrop-filter: blur(17px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    overflow:hidden;
    
 }
 
@@ -194,6 +202,12 @@ body {
     list-style-position: none;
     display: grid;
     grid-template-columns: repeat(4,3fr);
+    backdrop-filter: blur(17px) saturate(180%);
+    -webkit-backdrop-filter: blur(17px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    overflow:hidden;
    
    
     
@@ -299,7 +313,14 @@ padding: 10px;
     color:orange;
 }
 
-
+.footer{
+  backdrop-filter: blur(17px) saturate(180%);
+ -webkit-backdrop-filter: blur(17px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  overflow:hidden;
+}
 
 </style>
 </head>
